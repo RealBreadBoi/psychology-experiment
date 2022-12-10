@@ -20,7 +20,7 @@ def uploadData(request):
     exp_res = json.loads(request.body)
 
     with open('./media/raw_data.txt', 'a+') as f:
-        f.writelines([exp_res])
+        f.writelines([request.body.decode() + '\n\n'])
 
     data = util.extract_data(exp_res)
 
